@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/discoverFragment">
+
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.example.movieapp.ui.detail.MovieDetailFragment"
+        android:label="MovieDetailFragment" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/discoverFragment"
+        android:name="com.example.movieapp.ui.discover.DiscoverFragment"
+        android:label="Discover" >
+        <action
+            android:id="@+id/action_discoverFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+        <action
+            android:id="@+id/action_discoverFragment_to_popularMoviesFragment"
+            app:destination="@id/popularMoviesFragment" />
+        <action
+            android:id="@+id/action_discoverFragment_to_upcomingMoviesFragment"
+            app:destination="@id/upcomingMoviesFragment" />
+        <action
+            android:id="@+id/action_discoverFragment_to_nowplayingMoviesFragment"
+            app:destination="@id/nowplayingMoviesFragment" />
+        <action
+            android:id="@+id/action_discoverFragment_to_searchMovieFragment"
+            app:destination="@id/searchMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/popularMoviesFragment"
+        android:name="com.example.movieapp.ui.popular_movies.PopularMoviesFragment"
+        android:label="Popular Movies" >
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/upcomingMoviesFragment"
+        android:name="com.example.movieapp.ui.upcoming_movies.UpcomingMoviesFragment"
+        android:label="Upcoming Movies" >
+        <action
+            android:id="@+id/action_upcomingMoviesFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/nowplayingMoviesFragment"
+        android:name="com.example.movieapp.ui.nowplaying_movies.NowplayingMoviesFragment"
+        android:label="Now Playing Movies" >
+        <action
+            android:id="@+id/action_nowplayingMoviesFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchMovieFragment"
+        android:name="com.example.movieapp.ui.search_movies.SearchMovieFragment"
+        android:label="Search Movie"
+        tools:layout="@layout/fragment_search_movie" >
+        <action
+            android:id="@+id/action_searchMovieFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+        <argument
+            android:name="movieName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>
