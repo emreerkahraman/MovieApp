@@ -1,11 +1,11 @@
 # MovieApp
 
 <p float="left">
-   <img src="https://github.com/emreerkahraman/LoodosChallenge/blob/master/ss/ss1.jpeg" width="25%" height="25%">
-   <img src="https://github.com/emreerkahraman/LoodosChallenge/blob/master/ss/ss2.jpeg" width="25%" height="25%">
-   <img src="https://github.com/emreerkahraman/LoodosChallenge/blob/master/ss/ss3.jpeg" width="25%" height="25%">
-   <img src="https://github.com/emreerkahraman/LoodosChallenge/blob/master/ss/ss4.jpeg" width="25%" height="25%">
-   <img src="https://github.com/emreerkahraman/LoodosChallenge/blob/master/ss/ss5.jpeg" width="25%" height="25%">
+   <img src="https://github.com/emreerkahraman/MovieApp/blob/master/art/1.png" width="25%" height="25%">
+   <img src="https://github.com/emreerkahraman/MovieApp/blob/master/art/2.png" width="25%" height="25%">
+   <img src="https://github.com/emreerkahraman/MovieApp/blob/master/art/3.png" width="25%" height="25%">
+   <img src="https://github.com/emreerkahraman/MovieApp/blob/master/art/4.png" width="25%" height="25%">
+   
    
 </p>
 
