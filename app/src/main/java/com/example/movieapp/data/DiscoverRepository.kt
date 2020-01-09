@@ -16,4 +16,6 @@ class DiscoverRepository (var tmdbService: TmdbService){
     suspend fun getNowPlaying()  : Discover {
         return tmdbService.getNowPlaying()
     }
+
+
 }

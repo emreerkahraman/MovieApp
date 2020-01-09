@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.example.movieapp.ui.detail.MovieDetailFragment"
-        android:label="MovieDetailFragment" >
+        android:label="" >
         <argument
             android:name="movieId"
             app:argType="integer" />
@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/discoverFragment"
         android:name="com.example.movieapp.ui.discover.DiscoverFragment"
-        android:label="Discover" >
+        android:label="" >
         <action
             android:id="@+id/action_discoverFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment" />

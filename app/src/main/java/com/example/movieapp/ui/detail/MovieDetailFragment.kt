@@ -32,9 +32,7 @@ class MovieDetailFragment : Fragment() {
         binding=DataBindingUtil.inflate(inflater,R.layout.movie_detail_fragment,container,false)
         binding.lifecycleOwner =this@MovieDetailFragment
 
-        binding.back.setOnClickListener {
-            it.findNavController().navigateUp()
-        }
+
 
         return binding.root
     }
@@ -43,6 +41,7 @@ class MovieDetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel.getMovie(safeArgs.movieId).observe(viewLifecycleOwner, Observer {
 
+            (activity as AppCompatActivity).supportActionBar?.title =it.title
             binding.setVariable(BR.movie,it)
             binding.productionRecyclerView.adapter= ProductionCompanyAdapter(it.productionCompanies as List<ProductionCompany>)
             binding.genreRecyclerView.adapter =GenreAdapter(it.genres as List<Genre>)
@@ -52,14 +51,6 @@ class MovieDetailFragment : Fragment() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity).supportActionBar?.hide()
-    }
 
-    override fun onStop() {
-        super.onStop()
-        (activity as AppCompatActivity).supportActionBar?.show()
-    }
 
 }
