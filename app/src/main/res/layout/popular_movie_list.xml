@@ -8,15 +8,32 @@
     <data>
 
     </data>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ProgressBar
 
-    <androidx.recyclerview.widget.RecyclerView
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:id="@+id/popularProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            >
 
-        android:id="@+id/popularMoviesRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_movie_popular">
+        </ProgressBar>
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/popularMoviesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_movie_popular">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </FrameLayout>
+
+
+
 </layout>

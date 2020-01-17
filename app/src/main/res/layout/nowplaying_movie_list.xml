@@ -8,15 +8,32 @@
     <data>
 
     </data>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <androidx.recyclerview.widget.RecyclerView
+        <ProgressBar
 
-        android:id="@+id/nowPlayingMoviesRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_movie_nowplaying">
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:id="@+id/nowplayingProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            >
 
-    </androidx.recyclerview.widget.RecyclerView>
+        </ProgressBar>
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/nowPlayingMoviesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_movie_nowplaying">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </FrameLayout>
+
+
 </layout>

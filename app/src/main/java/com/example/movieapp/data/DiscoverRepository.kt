@@ -1,20 +1,21 @@
 package com.example.movieapp.data
 
 import com.example.movieapp.model.Discover
+import com.example.movieapp.model.NetworkResponse
 
-class DiscoverRepository (var tmdbService: TmdbService){
+class DiscoverRepository (var tmdbService: TmdbService) : BaseRepository() {
 
 
-    suspend fun getPopular()  : Discover {
-        return tmdbService.getPopular()
+    suspend fun getPopular()  : NetworkResponse<Discover>? {
+        return safeApiCall({tmdbService.getPopular()},"Popular Error")
     }
 
-    suspend fun getUpcoming()  : Discover {
-        return tmdbService.getUpcoming()
+    suspend fun getUpcoming()  :  NetworkResponse<Discover>? {
+        return safeApiCall({tmdbService.getUpcoming()},"Upcoming Error")
     }
 
-    suspend fun getNowPlaying()  : Discover {
-        return tmdbService.getNowPlaying()
+    suspend fun getNowPlaying()  :  NetworkResponse<Discover>? {
+        return safeApiCall({tmdbService.getNowPlaying()},"Now Playing Error")
     }
 
 

@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -17,10 +18,12 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.movieapp.R
 import com.example.movieapp.databinding.DiscoverFragmentBinding
+import com.example.movieapp.model.NetworkResponse
 import com.example.movieapp.model.Result
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DiscoverFragment : Fragment() {
+
     val viewModel: DiscoverViewModel by viewModel()
 
     private lateinit var binding: DiscoverFragmentBinding
@@ -58,20 +61,45 @@ class DiscoverFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel.popularMovies.observe(viewLifecycleOwner, Observer {
-            Log.i("size"," "+it?.size)
-            binding.popularInclude.popularMoviesRecyclerView.adapter =PopularMoviesAdapter(it as List<Result>)
+        viewModel.popularMovies.observe(viewLifecycleOwner, Observer  { response ->
+                when (response) {
+                    is NetworkResponse.Success -> {
+                        binding.popularInclude.popularMoviesRecyclerView.adapter = PopularMoviesAdapter(response.data.results as List<Result>)
+                        binding.popularInclude.popularProgress.visibility =View.GONE
+                    }
+
+                    is NetworkResponse.Error ->
+                        Toast.makeText(activity,"ERROR",Toast.LENGTH_SHORT).show()
+                }
         })
 
-        viewModel.upcomingMovies.observe(viewLifecycleOwner, Observer {
-            Log.i("size"," "+it?.size)
-            binding.upcomingInclude.upcomingMoviesRecyclerView.adapter =UpcomingMoviesAdapter(it as List<Result>)
+        viewModel.upcomingMovies.observe(viewLifecycleOwner, Observer { response ->
+
+            when (response) {
+
+                is NetworkResponse.Success -> {
+                    binding.upcomingInclude.upcomingMoviesRecyclerView.adapter =UpcomingMoviesAdapter(response.data.results as List<Result>)
+                    binding.upcomingInclude.upcomingProgress.visibility =View.GONE
+                }
+
+                is NetworkResponse.Error ->
+                    Toast.makeText(activity,"ERROR",Toast.LENGTH_SHORT).show()
+            }
         })
 
-        viewModel.nowPlayingMovies.observe(viewLifecycleOwner, Observer {
-            Log.i("size"," "+it?.size)
-            binding.nowplayingInclude.nowPlayingMoviesRecyclerView.adapter =NowPlayingMoviesAdapter(it as List<Result>)
+        viewModel.nowPlayingMovies.observe(viewLifecycleOwner, Observer { response ->
+
+            when (response) {
+                is NetworkResponse.Success -> {
+                    binding.nowplayingInclude.nowPlayingMoviesRecyclerView.adapter =NowPlayingMoviesAdapter(response.data.results as List<Result>)
+                    binding.nowplayingInclude.nowplayingProgress.visibility =View.GONE
+                }
+
+                is NetworkResponse.Error ->
+                    Toast.makeText(activity,"ERROR",Toast.LENGTH_SHORT).show()
+            }
         })
+
     }
 
     private fun initSearchInputListener() {
