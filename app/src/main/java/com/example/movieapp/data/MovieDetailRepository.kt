@@ -7,6 +7,6 @@ class MovieDetailRepository (private val tmdbService: TmdbService) :BaseReposito
 
 
     suspend fun getMovie(movieId :Int) : NetworkResponse<Movie> {
-        return safeApiCall({tmdbService.getMovie(movieId)},"Movie Detail Error")
+        return safeApiCall({tmdbService.getMovie(movieId)},"Error with Movie Detail ")
     }
 }

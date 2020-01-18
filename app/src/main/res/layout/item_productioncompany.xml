@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#1A1B37">
+        android:background="@color/midnightExpress">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -36,7 +36,7 @@
             android:layout_marginBottom="4dp"
             android:text="@{company.name}"
             android:textAlignment="center"
-            android:textColor="@color/md_white_1000"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
             app:layout_constraintStart_toStartOf="@+id/imageView5"

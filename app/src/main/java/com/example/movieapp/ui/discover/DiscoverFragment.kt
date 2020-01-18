@@ -3,7 +3,6 @@ package com.example.movieapp.ui.discover
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -69,7 +68,7 @@ class DiscoverFragment : Fragment() {
                     }
 
                     is NetworkResponse.Error ->
-                        Toast.makeText(activity,"ERROR",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity,response.message,Toast.LENGTH_SHORT).show()
                 }
         })
 
@@ -83,7 +82,7 @@ class DiscoverFragment : Fragment() {
                 }
 
                 is NetworkResponse.Error ->
-                    Toast.makeText(activity,"ERROR",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity,response.message,Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -96,7 +95,7 @@ class DiscoverFragment : Fragment() {
                 }
 
                 is NetworkResponse.Error ->
-                    Toast.makeText(activity,"ERROR",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity,response.message,Toast.LENGTH_SHORT).show()
             }
         })
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -19,7 +18,7 @@
                 android:id="@+id/cons"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#1A1B37">
+                android:background="@color/midnightExpress">
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -32,16 +31,16 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     android:hint="@string/search"
-                    android:textColorHint="#fff"
+                    android:textColorHint="@color/white"
                     app:boxCornerRadiusBottomEnd="8dp"
                     app:boxCornerRadiusBottomStart="8dp"
                     app:boxCornerRadiusTopEnd="8dp"
                     app:boxCornerRadiusTopStart="8dp"
                     app:endIconDrawable="@drawable/ic_baseline_search_24"
                     app:endIconMode="custom"
-                    app:endIconTint="#fff"
+                    app:endIconTint="@color/white"
                     app:errorEnabled="true"
-                    app:hintTextColor="#fff"
+                    app:hintTextColor="@color/white"
                     app:layout_constraintBottom_toTopOf="@+id/divider4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -53,8 +52,8 @@
                         android:layout_height="match_parent"
                         android:imeOptions="actionSearch"
                         android:inputType="textNoSuggestions"
-                        android:textColor="#fff"
-                        android:textColorHint="#fff"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         android:textSize="24sp">
 
                     </com.google.android.material.textfield.TextInputEditText>
@@ -68,7 +67,7 @@
                     android:layout_marginEnd="16dp"
                     android:text="@string/all"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="#fff"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/nowplaying" />
 
@@ -80,7 +79,7 @@
                     android:layout_marginTop="8dp"
                     android:text="@string/nowplaying"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="#fff"
+                    android:textColor="@color/white"
                     android:textSize="30sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divider4" />
@@ -93,7 +92,7 @@
                     android:layout_marginTop="8dp"
                     android:text="@string/popular"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="#fff"
+                    android:textColor="@color/white"
                     android:textSize="30sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/divider3" />
@@ -106,7 +105,7 @@
                     android:layout_marginTop="8dp"
                     android:text="@string/upcoming"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="#fff"
+                    android:textColor="@color/white"
                     android:textSize="30sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/divider2" />
@@ -119,7 +118,7 @@
                     android:layout_marginEnd="16dp"
                     android:text="@string/all"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="#fff"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="@+id/upcoming"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/upcoming" />
@@ -132,7 +131,7 @@
                     android:layout_marginEnd="16dp"
                     android:text="@string/all"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="#fff"
+                    android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/popular" />
 
@@ -213,7 +212,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/discover"
-                    android:textColor="#fff"
+                    android:textColor="@color/white"
                     android:textSize="40sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#1A1B37">
+        android:background="@color/midnightExpress">
 
         <ImageView
             android:id="@+id/imageView"
@@ -39,7 +39,7 @@
             android:singleLine="true"
             android:text="@{movie.title}"
             android:textAlignment="center"
-            android:textColor="#fff"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="@+id/imageView"
