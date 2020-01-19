@@ -3,8 +3,10 @@ package com.example.movieapp.ui.search_movies
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
@@ -19,6 +21,9 @@ class SearchMoviePagedAdapter : PagedListAdapter<Result, SearchMoviePagedAdapter
 
         fun bind(listener: View.OnClickListener, movie: Result){
 
+            ViewCompat.setTransitionName(binding.moviePoster, "imageView ${movie.id}")
+            ViewCompat.setTransitionName(binding.movieTitle, "textView ${movie.id}")
+
 
 
             with(binding) {
@@ -30,15 +35,20 @@ class SearchMoviePagedAdapter : PagedListAdapter<Result, SearchMoviePagedAdapter
 
     }
 
-    private fun createOnClickListener(movieId: Int): View.OnClickListener {
+    private fun createOnClickListener(binding: ItemMovieSearchBinding, movieId: Int, movieTitle: String, moviePoster:String): View.OnClickListener {
         return View.OnClickListener {
 
+            val extras = FragmentNavigatorExtras(
+                binding.moviePoster to "imageView $movieId",
+                binding.movieTitle to "textView $movieId"
+            )
 
-            val action = SearchMovieFragmentDirections.actionSearchMovieFragmentToMovieDetailFragment(movieId)
+
+            val action = SearchMovieFragmentDirections.actionSearchMovieFragmentToMovieDetailFragment(movieId,movieTitle,moviePoster)
 
 
 
-            it.findNavController().navigate(action)
+            it.findNavController().navigate(action ,extras)
         }
     }
 
@@ -61,7 +71,7 @@ class SearchMoviePagedAdapter : PagedListAdapter<Result, SearchMoviePagedAdapter
         getItem(position).let { movie ->
             with(holder) {
                 itemView.tag = movie
-                bind( createOnClickListener(movie?.id!!),movie)
+                bind( createOnClickListener(holder.binding,movie?.id!!,movie.title!!,movie.posterPath!!),movie)
             }
         }
     }

@@ -3,9 +3,11 @@ package com.example.movieapp.ui.discover
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.library.baseAdapters.BR
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
 import com.example.movieapp.databinding.ItemMoviePopularBinding
@@ -17,6 +19,9 @@ class PopularMoviesAdapter( var popularMovies: List<Result>) :RecyclerView.Adapt
     inner class  PopularMoviesViewHolder(var binding:ItemMoviePopularBinding ) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(listener: View.OnClickListener,movie: Result){
+            ViewCompat.setTransitionName(binding.moviePoster, "imageView ${movie.id}")
+            ViewCompat.setTransitionName(binding.movieTitle, "textView ${movie.id}")
+
             binding.setVariable(BR.movie,movie)
             binding.root.setOnClickListener(listener)
 
@@ -25,12 +30,19 @@ class PopularMoviesAdapter( var popularMovies: List<Result>) :RecyclerView.Adapt
 
     }
 
-    private fun createOnClickListener(movieId: Int?): View.OnClickListener {
-        return View.OnClickListener {
-    val action = DiscoverFragmentDirections
-                .actionDiscoverFragmentToMovieDetailFragment( movieId!!)
+    private fun createOnClickListener(binding: ItemMoviePopularBinding, movieId: Int, movieTitle: String, moviePoster:String): View.OnClickListener {
 
-            it.findNavController().navigate(action)
+        return View.OnClickListener {
+
+            val extras = FragmentNavigatorExtras(
+                binding.moviePoster to "imageView $movieId",
+                binding.movieTitle to "textView $movieId"
+            )
+
+            val action = DiscoverFragmentDirections
+                .actionDiscoverFragmentToMovieDetailFragment( movieId,movieTitle,moviePoster )
+
+            it.findNavController().navigate(action,extras)
         }
     }
 
@@ -46,6 +58,6 @@ class PopularMoviesAdapter( var popularMovies: List<Result>) :RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: PopularMoviesViewHolder, position: Int) {
-        holder.bind(createOnClickListener(popularMovies[position].id),popularMovies[position])
+        holder.bind(createOnClickListener(holder.binding,popularMovies[position].id!!,popularMovies[position].title!! ,popularMovies[position].posterPath!!),popularMovies[position])
     }
 }

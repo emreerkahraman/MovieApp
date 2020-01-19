@@ -3,14 +3,15 @@ package com.example.movieapp.ui.upcoming_movies
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
 import com.example.movieapp.databinding.ItemUpcomingAllBinding
 import com.example.movieapp.model.Result
-
 import com.example.movieapp.ui.popular_movies.ResultDiffCallBack
 
 class UpcomingMoviesPagedAdapter : PagedListAdapter<Result, UpcomingMoviesPagedAdapter.UpcomingViewHolder>(ResultDiffCallBack()) {
@@ -19,6 +20,9 @@ class UpcomingMoviesPagedAdapter : PagedListAdapter<Result, UpcomingMoviesPagedA
 
 
         fun bind(listener: View.OnClickListener, movie: Result){
+
+            ViewCompat.setTransitionName(binding.moviePoster, "imageView ${movie.id}")
+            ViewCompat.setTransitionName(binding.movieTitle, "textView ${movie.id}")
 
 
 
@@ -31,14 +35,19 @@ class UpcomingMoviesPagedAdapter : PagedListAdapter<Result, UpcomingMoviesPagedA
 
     }
 
-    private fun createOnClickListener(movieId: Int): View.OnClickListener {
+    private fun createOnClickListener(binding: ItemUpcomingAllBinding, movieId: Int, movieTitle: String, moviePoster:String): View.OnClickListener {
         return View.OnClickListener {
 
+            val extras = FragmentNavigatorExtras(
+                binding.moviePoster to "imageView $movieId",
+                binding.movieTitle to "textView $movieId"
+            )
 
-            val action = UpcomingMoviesFragmentDirections.actionUpcomingMoviesFragmentToMovieDetailFragment(movieId)
+
+            val action = UpcomingMoviesFragmentDirections.actionUpcomingMoviesFragmentToMovieDetailFragment(movieId,movieTitle,moviePoster)
 
 
-            it.findNavController().navigate(action)
+            it.findNavController().navigate(action,extras)
         }
     }
 
@@ -61,7 +70,7 @@ class UpcomingMoviesPagedAdapter : PagedListAdapter<Result, UpcomingMoviesPagedA
         getItem(position).let { movie ->
             with(holder) {
                 itemView.tag = movie
-                bind( createOnClickListener(movie?.id!!),movie)
+                bind( createOnClickListener(holder.binding,movie?.id!!,movie.title!!,movie.posterPath!!),movie)
             }
         }
     }

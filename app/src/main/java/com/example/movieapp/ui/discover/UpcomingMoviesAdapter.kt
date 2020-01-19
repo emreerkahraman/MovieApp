@@ -3,9 +3,11 @@ package com.example.movieapp.ui.discover
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.library.baseAdapters.BR
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.R
 import com.example.movieapp.databinding.ItemMovieUpcomingBinding
@@ -17,6 +19,10 @@ class UpcomingMoviesAdapter ( var upcomingMovies: List<Result>) : RecyclerView.A
     inner class  UpcomingMoviesViewHolder(var binding: ItemMovieUpcomingBinding) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(listener: View.OnClickListener,movie: Result){
+
+            ViewCompat.setTransitionName(binding.moviePoster, "imageView ${movie.id}")
+            ViewCompat.setTransitionName(binding.movieTitle, "textView ${movie.id}")
+
             binding.setVariable(BR.movie,movie)
             binding.root.setOnClickListener(listener)
 
@@ -25,12 +31,18 @@ class UpcomingMoviesAdapter ( var upcomingMovies: List<Result>) : RecyclerView.A
 
     }
 
-    private fun createOnClickListener(movieId: Int?): View.OnClickListener {
+    private fun createOnClickListener(binding: ItemMovieUpcomingBinding, movieId: Int, movieTitle: String, moviePoster:String): View.OnClickListener {
         return View.OnClickListener {
-            val action = DiscoverFragmentDirections
-                .actionDiscoverFragmentToMovieDetailFragment( movieId!!)
 
-            it.findNavController().navigate(action)
+            val extras = FragmentNavigatorExtras(
+                binding.moviePoster to "imageView $movieId",
+                binding.movieTitle to "textView $movieId"
+            )
+
+            val action = DiscoverFragmentDirections
+                .actionDiscoverFragmentToMovieDetailFragment( movieId,movieTitle,moviePoster)
+
+            it.findNavController().navigate(action, extras)
         }
     }
 
@@ -47,6 +59,6 @@ class UpcomingMoviesAdapter ( var upcomingMovies: List<Result>) : RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: UpcomingMoviesViewHolder, position: Int) {
-        holder.bind(createOnClickListener(upcomingMovies[position].id),upcomingMovies[position])
+        holder.bind(createOnClickListener(holder.binding, upcomingMovies[position].id!!,upcomingMovies[position].title!!,upcomingMovies[position].posterPath!!),upcomingMovies[position])
     }
 }

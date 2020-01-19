@@ -12,6 +12,12 @@
         <argument
             android:name="movieId"
             app:argType="integer" />
+        <argument
+            android:name="movieTitle"
+            app:argType="string" />
+        <argument
+            android:name="moviePoster"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/discoverFragment"
@@ -20,38 +26,23 @@
         <action
             android:id="@+id/action_discoverFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            />
         <action
             android:id="@+id/action_discoverFragment_to_popularMoviesFragment"
             app:destination="@id/popularMoviesFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            />
         <action
             android:id="@+id/action_discoverFragment_to_upcomingMoviesFragment"
             app:destination="@id/upcomingMoviesFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            />
         <action
             android:id="@+id/action_discoverFragment_to_nowplayingMoviesFragment"
             app:destination="@id/nowplayingMoviesFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            />
         <action
             android:id="@+id/action_discoverFragment_to_searchMovieFragment"
             app:destination="@id/searchMovieFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            />
     </fragment>
     <fragment
         android:id="@+id/popularMoviesFragment"
@@ -60,10 +51,7 @@
         <action
             android:id="@+id/action_popularMoviesFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            />
     </fragment>
     <fragment
         android:id="@+id/upcomingMoviesFragment"
@@ -72,10 +60,7 @@
         <action
             android:id="@+id/action_upcomingMoviesFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            />
 
     </fragment>
     <fragment
@@ -85,10 +70,7 @@
         <action
             android:id="@+id/action_nowplayingMoviesFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            />
     </fragment>
     <fragment
         android:id="@+id/searchMovieFragment"
@@ -98,10 +80,7 @@
         <action
             android:id="@+id/action_searchMovieFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            />
         <argument
             android:name="movieName"
             app:argType="string"
