@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.example.movieapp.R
+import com.example.movieapp.utils.GridAutoFitLayoutManager
+import com.example.movieapp.utils.SpacesItemDecoration
+import com.example.movieapp.utils.dp
 import kotlinx.android.synthetic.main.fragment_search_movie.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -28,15 +31,12 @@ class SearchMovieFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_search_movie, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initSearchInputListener()
         initRecyclerView()
+
         if (safeArgs.movieName!=null){
             viewModel.searchMovie(safeArgs.movieName!!)
             searchEditText.setText(safeArgs.movieName)
@@ -48,22 +48,18 @@ class SearchMovieFragment : Fragment() {
 
     private fun initRecyclerView(){
 
+        searchMovieRecyclerView.addItemDecoration(SpacesItemDecoration(16))
 
-        viewModel.pagedMovieList.observe(viewLifecycleOwner, Observer {
-                movieList->
+        searchMovieRecyclerView.layoutManager = GridAutoFitLayoutManager(activity!!,342.dp)
 
+
+        viewModel.pagedMovieList.observe(viewLifecycleOwner, Observer {  movieList->
 
             searchMovieRecyclerView.apply {
-
-
-
                 adapter= SearchMoviePagedAdapter().apply {
-
-
                     submitList(movieList)
                     notifyDataSetChanged()
                 }
-
 
             }
         })

@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.example.movieapp.utils.CustomGridRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/upcomingMoviesAllRecyclerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/midnightExpress"
-    android:layoutAnimation="@anim/grid_layout_animation_from_bottom"
-    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-    app:spanCount="2"
     tools:listitem="@layout/item_upcoming_all">
 
 
-</com.example.movieapp.utils.CustomGridRecyclerView>
+</androidx.recyclerview.widget.RecyclerView>
