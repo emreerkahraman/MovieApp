@@ -14,10 +14,12 @@
             app:argType="integer" />
         <argument
             android:name="movieTitle"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <argument
             android:name="moviePoster"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/discoverFragment"

@@ -35,7 +35,7 @@ class UpcomingMoviesPagedAdapter : PagedListAdapter<Result, UpcomingMoviesPagedA
 
     }
 
-    private fun createOnClickListener(binding: ItemUpcomingAllBinding, movieId: Int, movieTitle: String, moviePoster:String): View.OnClickListener {
+    private fun createOnClickListener(binding: ItemUpcomingAllBinding, movieId: Int, movieTitle: String?, moviePoster:String?): View.OnClickListener {
         return View.OnClickListener {
 
             val extras = FragmentNavigatorExtras(
@@ -70,7 +70,10 @@ class UpcomingMoviesPagedAdapter : PagedListAdapter<Result, UpcomingMoviesPagedA
         getItem(position).let { movie ->
             with(holder) {
                 itemView.tag = movie
-                bind( createOnClickListener(holder.binding,movie?.id!!,movie.title!!,movie.posterPath!!),movie)
+                if (movie != null) {
+                    bind( createOnClickListener(holder.binding,movie.id!!,movie.title,movie.posterPath),movie)
+                }
+
             }
         }
     }
