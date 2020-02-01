@@ -1,6 +1,6 @@
 # MovieApp
 
-
+## Made with 
 * LiveData
 * ViewModel
 * Courotines
@@ -16,11 +16,6 @@
 Apk Download
 https://github.com/emreerkahraman/MovieApp/blob/master/apk/movieapp.apk
  
-
-<h2> Made with 
-   *LiveData 
-   ⋅⋅*ViewModel 
-   ⋅⋅*Courotines, Jetpack Navigation ,Retrofit ,Picasso, Databinding, Koin, Paging</h2>
 
 <p float="left">
    <img src="https://github.com/emreerkahraman/MovieApp/blob/master/art/11.png" width="25%" height="25%">
