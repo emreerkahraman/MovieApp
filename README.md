@@ -2,7 +2,7 @@
 
 
 <h2> Made with 
-   ⋅⋅*LiveData 
+   *LiveData 
    ⋅⋅*ViewModel 
    ⋅⋅*Courotines, Jetpack Navigation ,Retrofit ,Picasso, Databinding, Koin, Paging</h2>
 
