@@ -1,10 +1,21 @@
 # MovieApp
 
 
-* Item 1
-* Item 2
-  * Item 2a
-  * Item 2b
+* LiveData
+* ViewModel
+* Courotines
+* Jetpack Navigation
+* Retrofit
+* Picasso
+* Databinding
+* Koin
+* Databinding
+* Koin
+* Paging Libary
+
+Apk Download
+https://github.com/emreerkahraman/MovieApp/blob/master/apk/movieapp.apk
+ 
 
 <h2> Made with 
    *LiveData 
