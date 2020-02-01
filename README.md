@@ -9,9 +9,7 @@
 * Picasso
 * Databinding
 * Koin
-* Databinding
-* Koin
-* Paging Libary
+* Paging Library
 
 Apk Download
 https://github.com/emreerkahraman/MovieApp/blob/master/apk/movieapp.apk
